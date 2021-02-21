@@ -1,0 +1,11 @@
+{
+  "name": "npm_testing",
+  "version": "1.0.0",
+  "description": "this is for demo",
+  "main": "Basic.js",
+  "scripts": {
+    "start": "node Basic.js"
+  },
+  "author": "Abhishek",
+  "license": "ISC"
+}
