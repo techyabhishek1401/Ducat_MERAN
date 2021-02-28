@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../bootstrap/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/mdb.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Create Content</title>
+</head>
+<body>
+
+    <div id='root'></div>
+
+<!-- BODY ENDS -->
+<script src="./js/fontawesome-all.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/babel.js"></script>
+
+<script type="text/babel">
+
+// component 1 (functional)
+function Hello() {
+    console.log("hello")
+    return <div>Hello 
+    <Welcome2 />
+    <h1>Bye bye </h1>
+    <Welcome />
+    </div>
+}
+
+// component 2 (Class)
+class Welcome extends React.Component {  
+   
+    render(){
+        console.log("in render");
+        return <div>
+            <h1>Class Component </h1>
+              <Welcome2 />
+        </div>
+    }
+  
+}
+class Welcome2 extends React.Component {  
+   
+  render(){
+      console.log("in render of welcom2");
+      return <div>
+          <h1>Class Welcome2 </h1>
+        
+         
+      </div>
+  }
+  
+}
+ReactDOM.render(<Hello />,document.getElementById("root"));
+</script>
+</body>
+</html>
+

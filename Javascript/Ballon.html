@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Ballon</title>
+<style>
+    body{ overflow: hidden;}
+    .container {
+        width:500px;
+        height:300px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        border: 2px solid gray;
+    }
+    .arrow {
+        width: 50px;
+        position: relative;
+        border: 2px solid black; 
+            
+    }
+    .active {
+        background-color: red;
+    }
+    .ballon {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border: 1px solid blue;
+        border-radius: 50%;
+        left:90%;
+    }
+    #a{
+        top: 30px;
+    }
+    #b{
+      
+        top: 120px;
+    }
+   #c{
+        top: 150px;
+    }
+    .box {
+     width: 50px;
+     height: 50px;
+    }
+    .score {
+        background: greenyellow;
+        position: fixed;
+        right:0;
+    }
+    .miss {
+        background: red;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="score box text-center text-white ">0</div>
+    <div class="miss box text-center text-white ">0</div>
+    <div class="container">
+        
+             <!-- <img src='./Media/arrow.png' width="50px" /> -->
+             <div class="arrow"></div>
+      <div class="ballon" id='a'></div>
+      <div class="ballon" id='b'></div>
+      <div class="ballon" id='c'></div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+<script>
+    // Taking the Refernces
+
+    let arrow= document.querySelector('.arrow');
+    let ballons=document.querySelectorAll('.ballon');
+    let board=document.querySelector('.container');
+   let arrow_top=0;
+   let arrow_right=0;
+   let ballon_top=0;
+  let active_ballon;
+   let score=0,miss=0;
+// Moving the arrow
+    window.addEventListener('keydown',(e)=>{
+      console.log(e.keyCode)
+      if(e.keyCode===40 && arrow_top <290){
+        arrow_top+=10;
+        arrow.style.top=`${arrow_top}px`;   
+      }
+
+      if(e.keyCode===38 && arrow_top >0){
+        arrow_top-=10;
+        arrow.style.top=`${arrow_top}px`;   
+      }
+
+      if(e.keyCode===13){
+       let arrow_interval= setInterval(()=>{
+          if(arrow_right===420){
+           
+           if(arrow_top>=ballon_top && arrow_top <= ballon_top+40){
+             active_ballon.style.display='none';
+             score+=1;
+             document.querySelector('.score').innerText=score;
+           }
+           else {
+            miss+=1;
+             document.querySelector('.miss').innerText=miss;
+           }
+            clearInterval(arrow_interval);
+            setTimeout(()=>{
+              arrow_top=0;
+              arrow_right=0;
+              arrow.style.top=`${arrow_top}px`; 
+              arrow.style.left=`${arrow_right}px`; 
+            },300)
+          }
+          arrow_right+=5;
+          arrow.style.left=`${arrow_right}px`;  
+
+
+        },30)
+      }
+    })
+
+
+// Selecting the ballon
+ballons.forEach(ballon=>{
+    ballon.addEventListener('click',(e)=>{
+    
+    active_ballon=e.target;
+    ballon_top=active_ballon.offsetTop; 
+    let previous_active_ballon=document.querySelector('.active');
+    if(previous_active_ballon){
+        previous_active_ballon.classList.remove('active');
+    }
+    e.target.classList.add('active');
+
+ 
+    })
+})
+
+</script>
+</body>
+</html>
