@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function outer(outerVariable){
+            console.log('outer:',outerVariable)
+            function inner(innerVariable){
+                    return outerVariable+" "+innerVariable
+                  }
+
+              return inner    
+        }
+
+        let innerFunction=outer('Outer');
+      let result=  innerFunction('inner');
+      console.dir(innerFunction)
+      console.log('result:',result)
+    </script>
+</body>
+</html>
