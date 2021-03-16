@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+  <script>
+      /**
+       It is used when we want to do repeated tasks ,basically itterations
+       eg:printing even numbers,odd numbers...
+       */
+
+
+       /** 
+        syntax 
+        for(dataType-let,var starting point; condition checking ; counter){
+        }
+       */
+       
+       console.log("Printing numbers from 1-10");
+       console.log("-----------<for loop Started>");
+       for(let i=1;i<=5;i++){   //i+1 =>2,i+1=>2+1=>3,i+1=>3+1=>4,i+1=>4+1=>5,,i+1=>5+1=>6
+           console.log("Hi...");
+       }
+       console.log("-----------<for loop ended>");
+
+
+        // -----Printing even Numbers from 1-10
+        console.log("EVEN NUMBER");
+        for(let i=2;i<=10;i=i+2){
+            console.log(i)
+        }
+
+         // -----Printing odd Numbers from 1-10
+         console.log("ODD NUMBERS");
+         for(let i=1;i<=10;i=i+2){
+            console.log(i)
+        }
+
+        // ---EVEN/ODD
+        let even,odd;
+        for(let i=0;i<5;i++){
+             even=2*i;
+             odd=2*i+1;
+            console.log("EVEN:",even);
+            console.log("ODD:",odd);
+        }
+       
+
+        //--------------------------------<Pattern Printng>
+            /** 
+             
+             *   i=1,j=1
+             * *  i=2,j=1,2  
+             * * *  i=3,j=1,2,3
+             * * * * i=4,j=1,2,3,4
+             * * * * *  i=5,j=1,2,3,4,5
+             * * * * * *
+             * * * * * * *
+             * * * * * * * *
+             
+            */
+
+
+            for(let i=1;i<=3;i++)
+            {
+                console.log("-----------i:",i);
+                for(let j=1;j<=3;j++){ 
+                    console.log("j:",j);
+                }
+            }
+
+
+            /**
+            i=1,
+                1<3 => true;
+                   --------------i:1   
+                   j=1
+                       1<=3=>true 
+                       j:1   ,j++=>j+1=>1+1
+                   j=2
+                      2<=3=>true
+                      j:2, j++=>j+1=>2+1=>3
+                   j=3   
+                       3<=3=>true;
+                       j:3, j++=>j+1=>3+1=>4
+                   j=4  
+                       4<=3 =>false   
+                       //end of j loop (inner loop) 
+
+
+                   i++,i+1=>1+1=>2
+            i=2
+
+             */
+
+          
+              let str1='',str2='';
+
+             for(let i=1;i<=8;i++){                 
+                 
+                   for(j=1;j<=i;j++){
+                       str2=str2+j;
+                   }
+                   
+                   console.log(str2);
+                   str2='';
+             }
+
+  </script>
+</body>
+</html>

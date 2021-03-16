@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        let str="",str2="";
+        let lineBreak='<br /><br />';
+        for( let i=1;i<=5;i++){
+            for (let j=1;j<=i;j++){
+               str=str+"*"
+            }
+            str=str+"<br />"           
+        }
+        document.write(str);
+
+  
+        for( let i=1;i<=5;i++){
+            for (let j=5;j>=i;j--){
+               str2=str2+"*"
+            }
+            str2=str2+"<br />"           
+        }
+        
+        document.write(lineBreak+str2);
+
+
+
+
+// -------------------------------Diamond
+str="";
+for( let i=1;i<=5;i++){
+            for (let j=1;j<=i;j++){
+               str=str+"*"
+            }
+            str=str+"<br />"           
+        }
+      //  document.write(str);
+
+  
+        for( let i=1;i<=5;i++){
+            for (let j=5;j>=i;j--){
+               str=str+"*"
+            }
+            str=str+"<br />"           
+        }
+        
+        document.write(lineBreak+str);
+
+
+
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        console.log("Fruit Array:",fruits)  ;
+        console.log("Apple:",fruits[2]);
+        fruits[2]="Grapes";
+        console.log("Fruit Array:",fruits)  ;
+
+
+        // -----Converting array to String
+        console.log("String Array:",fruits.toString());
+        let strFruit= fruits.toString();
+        console.log("type:",typeof strFruit);
+
+        console.log("*join:",fruits.join("-->"))
+
+
+
+        // remove/add at last 
+        console.log("Before pop:",fruits);
+        console.log("Removing last element:",fruits.pop());
+        console.log("After pop:",fruits);
+        console.log("Pushing to end:",fruits.push(8));
+        console.log("After push:",typeof typeof fruits[3]);
+        let type=typeof fruits[3];
+        console.log("type:",type)
+        console.log("typeof type:",typeof type);
+
+
+        // remove/add at begining
+        console.log("Before shift:",fruits);
+        console.log("Removing first element:",fruits.shift());
+        console.log("After shift:",fruits);
+       
+        console.log("Shifting the array:",fruits.unshift("chico"));
+        console.log("After unshift:",fruits);
+
+
+        // finding length
+        console.log("length:",fruits.length)
+
+
+
+        //splicing
+         fruits = ["Banana", "Orange", "Apple", "Mango"];
+        console.log("Before splicing:",fruits);
+        console.log("Removing first element:",fruits.splice(2,3,"chico","kiwi"));
+        console.log("After splicing:",fruits);
+
+
+        console.log("Before splicing:",fruits);
+        console.log("Removing first element:",fruits.splice(1,4));
+        console.log("After splicing:",fruits);
+    </script>
+</body>
+</html>

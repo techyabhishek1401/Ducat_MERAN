@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+</head>
+<body>
+    <h1>Basic Learning</h1>
+
+
+    <script>
+      console.log("**********WELCOME TO JS********");
+    /** 
+     variables--> a name or refernece that is used to access or identify any value
+     eg name="Abhishek",fruit="Orange"
+     types->
+     
+     let:it has local refernce,     
+     var:It has global refernce,
+     const:It is used when we want a constanct(whose's value will not change);
+
+    
+
+
+    */
+
+     let name="Abhishek";
+     var name1="Abhishek1";
+     const name2="Abhishek2";
+
+     console.log("NAME:",name);
+     console.log("NAME1:",name1);
+     console.log("NAME2:",name2);
+
+     name="Chetana";  //re assigning name
+     console.log("New NAME:",name);
+
+     name1="Chetana1";  //re assigning name1
+     console.log("New NAME1:",name1);
+
+
+   //  name2="Chetana2";  //re assigning a constant name2
+     console.log("New NAME1:",name2);
+
+
+    /**
+     Operators-Used for perform some calculation or condition checking
+     Arthmatic-->  +,-,*,/,%(moduls) 
+    condition operator--> >,<,>=,<=,==,===,!=,!==
+    logical Operators--> AND(&&),OR (||)  
+    Increment/Decrement  --> ++,--
+                  type->Pre (--a); //Tide
+                        POST (a++); //gadhi ditergent
+     */
+     let a='5';
+     if(a==5){
+         console.log("a is equal to 5");
+     }
+     else  console.log("a is Not equal to 5");
+
+
+     if(a===5){
+         console.log("a is equal to 5");
+     }
+     else  console.log("a is Not equal to 5");
+
+
+     let num1=5,num2=10,result=0,num3=9;  
+      result= ++num1 + num2++;           
+     console.log("num1:",num1); //6
+     console.log("num2:",num2); //11
+     console.log("result:",result); //16
+
+     num1=5,num2=10,result=0,num3=9;
+     result=++num3 + ++num1 + num2++;          
+     console.log("num1:",num1); //6
+     console.log("num2:",num2); //11
+     console.log("num3:",num3); //10
+     console.log("result:",result); //26
+
+
+     num1=5,num2=10,result=0,num3=9;
+     result=++num3 + ++num1 + num2++ + ++num2;
+       
+     console.log("num1:",num1); //6
+    console.log("num2:",num2); //12
+     console.log("num3:",num3); //10
+     console.log("result:",result); //38
+
+
+    //  ---------------------------------------<Array>
+        //create
+        let fruits=["Apple","mango","Orange"];
+     console.log("fruits:",fruits)
+     //getting mango
+     console.log("mango:",fruits[1]);  //Read
+     fruits[1]=100;    //Update
+     console.log("fruits:",fruits)
+
+     delete fruits[1];   //Delete
+     console.log("fruits:",fruits)
+     console.log("mango:",fruits[1]);
+     fruits[7]="Chico"; //add 4 empty values
+     console.log("fruits:",fruits)
+    
+     
+      //  ---------------------------------------<Object>
+        /** 
+         * fName,Lname,hno,city,area,pincode,collegeName,branch,mobile,.....
+        
+         let student={
+              [key]:value   //key shoule be unique
+         }
+        */
+       let student={
+           fName:"Abhishek",
+           area:"Sector 121",
+           'my Name':"Abhishek Kumar",
+
+       }
+       console.log("Student:",student);
+       console.log("(m1)FNAME:",student['fName']);
+       console.log("(m2)FNAME:",student['my Name']);
+
+      // CRUD Operations
+  //- CREATE
+       student['course']="JS";
+       student.pincode="201301"
+       console.log("Student:",student);
+
+  // READ
+  console.log("Student Area:",student['area']);
+   // UPdate
+      student['course']="MERN"; 
+      console.log("Student:",student);
+
+//Delete
+   delete student["area"];
+   console.log("Student:",student);
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+ <style>
+   /* .button{
+       background-color: blue;
+       border: none;
+       padding: 5px 20px;
+       color: white;
+   } */
+   ul{
+     margin-top: 100px;
+   }
+
+   li{
+     list-style: none;
+     width:150px;
+     display: inline-block;
+     background: black;
+     color:white;
+     text-align: center;
+     cursor: pointer;
+   }
+   li.active {
+     background-color: brown !important;
+   }
+   span{
+     color: blueviolet;
+   }
+  
+ </style>
+</head>
+  <body>
+    <!-- inline,by id,class,tagname -->  
+    <div class="container">
+      <input placeholder="type here" class="cl" id="my-input"/>
+      <input placeholder="type here again" class="cl" id="my-input2"/>
+       <button class="btn btn-info my-btn cl " id="my-btn">Hi</button>
+       <h1>   Inner Text <span id="content"></span></h1>
+       <h1>   Inner HTML <span id="content2"></span></h1>
+       <ul>
+         <li>Home 1</li>
+         <li class="active">Home 2</li>
+         <li>Home 3</li>
+         <li>Home 4</li>
+       </ul>
+    </div>
+   
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+
+    <script>
+        console.log("Taking the refernce :",document);
+        console.log("window:",window)
+       //  by id
+       let span_ref=document.getElementById("content");
+       let span_ref2=document.getElementById("content2");
+       
+       // var/let refernce_name= method name ("passed value");
+        let input_ref=document.getElementById('my-input');  //single element
+       console.log("Input:",input_ref);
+      // by  class name
+       let btn_ref=document.getElementsByClassName('my-btn'); //return array of elements
+       console.log("Button:",btn_ref[0]);
+     
+       // querySelector 
+       let btn_ref2=document.querySelector('.cl'); //single element
+       console.log("Button2:",btn_ref2);
+
+       //querySelectorAll
+       let btn_ref3=document.querySelectorAll('input#my-input'); //returns array
+       console.log("Query Selector All:",btn_ref3);
+
+       let btn_ref_hi=document.querySelector("#my-btn");
+       console.log("btn_ref_hi:",btn_ref_hi)
+/*
+Applying Dynamic Property
+refernce.propertyName=value
+*/
+
+// -----Applying style using javascript using style
+btn_ref[0].style.color="black";
+btn_ref[0].style.padding="20px 40px";
+
+
+  // console.log("ClassList:",btn_ref[0].classList);    //add remove
+  // btn_ref[0].classList.remove("btn-info"); 
+  // console.log("ClassList:",btn_ref[0].classList);   
+  // btn_ref[0].classList.add("btn-danger"); 
+
+
+
+
+  // Events 
+    /* 
+
+    function functonName (argument){
+
+    }
+    refernce.addEventListener("event name",callbackfunction/annoynomous function)
+    click,dblclick,change,hover,keypress,...
+    */
+    let inputValue="";
+
+      btn_ref[0].addEventListener('click',function (event){
+       console.log(" Hello ",inputValue);
+       span_ref.innerText=inputValue;
+       span_ref2.innerHTML=inputValue;
+     
+      });
+
+
+      input_ref.addEventListener('keypress',function(event){
+        console.log("event.target:",event.target.value)
+         inputValue=event.target.value;
+      })
+    // document.getElementById('my-btn').addEventListener('dblclick',function (){
+    //     alert("hello");
+    // })
+
+  //  -------Navigation----
+  let ul_ref=document.querySelector("ul");
+  console.log("ul ref:",ul_ref);
+  ul_ref.addEventListener('click',function(){
+   //  event.target.classList.add("bg-danger");
+     event.target.style.background="yellow";   
+  })
+ 
+    // printing the input value
+   
+    </script>
+
+</body>
+</html>

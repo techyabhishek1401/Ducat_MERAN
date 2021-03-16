@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+    
+
+
+    <script>
+        console.log("Welcome to JS");
+/**
+ Loops:When we have to do sommething repeatedely then we use loops.
+ eg: You want to print numbers from 1-100;
+ */ 
+
+
+/* 
+for(starting_point;conditionCheck;increment/decrement)
+ {
+   repeated stuff
+ }
+*/
+       
+for(let i=1;i<=100;i++)
+{
+    console.log(i);   
+}
+console.log("loop ended");
+
+// ------Printing Even/Odd Number between 1-100;
+
+for(let num=1;num<=100;num++){
+    if(num%2==0){
+     console.log("Even:",num);
+    }
+    else{ 
+        console.log("Odd:",num);
+    }
+}
+
+// printing odd numbers
+
+for(let num=0;num<50;num++){
+    let odd=2*num+1;  
+    console.log("odd:",odd)
+}
+
+
+// 2d array traversal;
+ //        2;    2<=5  ;  outer+1=>1+1=>2+1=>3
+for(let outer=1;outer<=5;outer++)
+{
+    console.log("*****Outer******:",outer);   
+    for(let inner=1;inner<=5;inner++)
+    {
+        console.log("Inner:",inner);  
+    }
+
+}
+/*
+*****Outer******:1
+Inner:1
+Inner:2 
+Inner:3
+Inner:4 
+Inner:5
+
+*****Outer******:2
+Inner:1
+Inner:2 
+Inner:3
+Inner:4 
+Inner:5
+
+*/
+
+let str="";
+//        1      1<=5
+for(let outer=1;outer<=5;outer++){
+ //              1    1<=5
+    for(let inner=1;inner<=outer;inner++){
+         str=str+"*";       
+    }
+    str=str+"\n";
+}
+console.log(str);
+
+
+let str2="";
+//       6       6<=5      1+1=>2+1=>3+1=>4+1=>5+1=>6 
+for(let outer=1;outer<=5;outer++){
+ //            4         4>=5        5-1=>4
+      for(let inner=5;inner>=outer;inner--){
+        str2=str2+"*";           
+    }
+    str2=str2+"\n";
+}
+/** 
+   *****
+   ****
+   ***
+   **
+   * 
+  
+       
+
+
+*/
+
+console.log(str2);
+    </script>
+</body>
+</html>

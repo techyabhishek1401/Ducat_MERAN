@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Intro</title>
+    <style>
+      .text-center{
+          text-align: center;
+      }
+  </style>
+</head>
+<body>
+    <h1 class="text-center">Variables & operators</h1>
+   
+    <script>
+        console.log("********Variables*******");
+        // character - 'a','b','c' ...,
+        // strings  - "ab","abc","abcd",...
+        // Number  -1,2,3,4.5,6,6.7,..,
+        // Boolean  - TRUE or FALSE ( 1 or 0 )
+        //array   -It is collection or group of values/variables   color array colors=["red","yellow","blue",...], number array -[1,2,3,4,...]
+                                                           //getting yellow color  colors[1]==>yellow
+        //         mix array ["red",1,"blue",2]
+        //JSON / Object 
+        /** 
+        {
+             [key] : value,
+        }
+         */   
+         //Eg,   object={fname:"Abhishek",lastname:"Kumar"}   --> object.fname ==> "Abhishek"   
+
+         console.log("*******Type Declartaion********");
+         //syntax in other programming language
+         //  DataType VariableName= "value";
+         // In JS we have var,let and const;
+
+         /** 
+         var- It's used for having a global scope; //ES5  //through out the program
+              eg, var name="Abhishek"; 
+                var contact="8642029420",
+                var number=10,
+                var degrees=["BCA","MCA"]
+
+         let -It's used for local Scope; //ES6  //with in our boundries only
+              eg, let name="Abhishek"; 
+                  let contact="8642029420",
+                  let number=10,
+                  let degrees=["BCA","MCA"]
+
+         const- It's used to define constant values;
+                const pie=3.14;       
+         
+         */
+
+         
+        console.log("********operators******");
+
+        /** 
+         addition --> +
+         variable1+variable2   
+        */  
+       
+   //------Integer Values----
+      let a=5;
+      let b=10;
+      let result=a+b;
+      console.log("a+b=",result); //15
+
+    // --------Floating Values---
+       a=5.5;
+       b=10.75;
+      result=a+b;
+      console.log("a+b=",result); //16.
+
+    //------Character Values----
+       //eg-1
+       a="A";
+       b="B";
+       result=a+b;
+      console.log("a+b=",result);   //AB- Concetation  
+
+      //eg-2
+       a=10;
+       b="B";
+       result=a+b;
+      console.log("a+b=",result);   //10B- Concetation   
+   
+       //eg-3;
+
+       a="A";
+       b=10;
+      let c="B";
+      let d=5;
+      let e=5;
+       result=b+d+a+c;
+      console.log("a+b=",result); 
+        //a+b+c+d =A10B5
+        //a+c+b+d= AB105
+        //b+d+a+c= 15AB
+        //a+c+b+d+e=(AB10)+5==>AB105,(AB105)+5=>AB1055
+
+
+
+
+        // ---------------------Subtarction----------------
+           /** 
+         addition --> +
+         variable1+variable2   
+        */  
+       
+   //------Integer Values----
+   console.log("****************Subtarction***********************")
+       a=5;
+       b=10;
+       result=a-b;  //5 -10
+      console.log("a-b=",result);
+
+    // --------Floating Values---
+       a=5.5;
+       b=10.75;
+      result=a-b;
+      console.log("a-b=",result); 
+
+   //----------Mix Values----
+       a="A";
+       b=10;
+       result=a-b;
+      console.log("a-b=",result); // NaN not a number
+
+    
+   console.log("****************Multipication*************");
+   //-----------Integers Value-------
+   a=5;
+   b=10;
+   result=a*b;
+   console.log("a*b=",result);   
+
+   //-----------Floating Value-------
+   a=5.7555555;
+   b=10.99;
+   result=a*b;
+   console.log("a*b=",result);   
+
+
+   //-----------Character-------
+    //-----------Integers Value-------
+    a=5;
+   b="B";
+   result=a*b;
+   console.log("a*b=",result);   
+
+
+   console.log("****************Division*************");
+   //-----------Integers Value-------
+   a=5;
+   b=10;
+   result=a/b;
+   console.log("a/b=",result);   
+
+   //-----------Floating Value-------
+   a=5.7555555;
+   b=10.99;
+   result=a/b;
+   console.log("a/b=",result);   
+
+
+   //-----------Character-------
+   
+    a=5;
+   b="B";
+   result=a/b;
+   console.log("a/b=",result);   
+
+  
+
+   console.log("****************Modulus*************");
+   /** 
+    In Modulus Reminder become the Answer
+    eg 21%2=1,11%3=2; 
+   */
+   //-----------Integers Value-------
+   a=5;
+   b=10;
+   result=a%b;
+   console.log("a%b=",result);   
+
+   //-----------Floating Value-------
+   a=5.7555555;
+   b=10.99;
+   result=b%a;
+   console.log("b%a=",result);   
+
+
+   //-----------Character-------
+   
+    a=5;
+   b="B";
+   result=a%b;
+   console.log("a%b=",result);   
+
+
+   console.log("******************Condition Operators*********");
+   /** 
+    AND (&&),it is true when both or all the operands(condition) are true
+   */
+
+   a=true;
+   b=false;
+   result=a&&b;
+   console.log("a(true)   && b(false) =",result);  
+
+   a=true;
+   b=false;
+   result=b && a;
+   console.log(" b(false) && a(true)    =",result);  
+   
+
+   /** 
+    OR (||),it is true when  either of the operands(condition) are true
+   */
+
+   a=true;
+   b=false;
+   result=a||b;
+   console.log("a(true)   || b(false) =",result);  
+
+   a=true;
+   b=false;
+   result=b || a;
+   console.log(" b(false) || a(true)    =",result);  
+
+
+   
+   /** 
+    LESS THAN(<),LESS THAN EQUAL (<=),GREATER THAN (>),GREATER THAN EQUAL(>=) ,returs boolen if condition is true
+   */
+
+   a=10;
+   b=21;
+   c=10;
+   result=a>b;
+   console.log("a>b",result);  //false
+
+   result=c>=a;
+   console.log("c>=a",result); //true  
+
+   result=a<c;
+   console.log("a<c",result);  //false
+
+
+   result=c<=a;
+   console.log("c<=a",result); //true  
+
+  /** 
+    Increment & Decrement Operartor- It's used for increasing/decreassing the value of operand by(1) depending upon the case(pre/post)
+   */
+   a=10;
+   b=5;
+   result=++a;  
+   console.log("++a:",result);  //11
+   console.log("a:",a) //11
+
+
+   result=a++;
+   console.log("a++:",result);  //11
+   console.log("a:",a) //12
+
+
+   //-----------Decrement-----
+ 
+   result=--a;  
+   console.log("--a:",result);  //11  
+   console.log("a:",a) //11    
+
+   result=a--;
+   console.log("a--:",result);  //11  
+   console.log("a:",a) //10  
+
+  
+console.clear();
+
+  console.log("***********CRUD Operation In JSON(Object)******");
+  let student={
+    name:"Abhishek",
+   }
+ console.log("STUDENT:",student);
+  //--Create---
+ student.class="JAVASCRIPT";
+  console.log("STUDENT:",student);
+
+  student["my department"]="IT"
+  console.log("STUDENT:",student);
+
+
+  // --------------READ-------
+  console.log("Department:",student["my department"]);
+  console.log("Mobile:",student.mobile);
+  console.log("Name:",student.name);
+
+
+  // ---------------UPDATE------
+  student.mobile="ABC";
+  console.log("Student:",student);
+
+
+  student.mobile="864029420";
+  console.log("Student:",student);
+
+  // -----------DELETE----------
+  delete student['mobile'];
+  console.log("Student:",student);
+
+//------------------ARRAY AS VALUE----
+let courses=["React","Angular","Nodejs"];
+student.class=courses;
+console.log("Student:",student);
+
+
+// courses.push("Mongo");
+// student.class=courses;
+// console.log("Student:",student); 
+
+</script>
+</body>
+</html>

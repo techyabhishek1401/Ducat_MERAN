@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    
+
+    <script>
+    //    ["apple",1,{name:"abhishek"}]
+    //   let fruits=["Orange","apple","grapes"]
+    //                  0       1       2
+
+    //   let color=["red","orange","yellow"];
+    //     let/var/const  arrayName=[Array value]
+
+    
+    /*
+    CRUD  Operations 
+    C-Create  (Creating(adding) an element to array)
+    R-Read 
+    U-Update
+    D-Delete
+    
+    */
+
+
+    // READ       0       1        2
+    let fruits=["Apple","Orange","Grapes"];
+    console.log("Fruits:",fruits)
+    console.log("Orange:",fruits[1]);
+    console.log("Grapes:",fruits[2]);
+    console.log("random index:",fruits[5]);
+
+
+    //CREATE
+    //----Add chico to the Array
+    fruits[3]="Chico";
+    console.log("New Fruits Array:",fruits);
+//["Apple","Orange","Grapes",Chico];
+//  0        1         2      3
+    fruits[7]="Papaya";
+    fruits[9]=121;
+    console.log("New Fruits Array:",fruits);
+    
+    //Update
+    fruits[7]="Cherry";
+    console.log("New Fruits Array:",fruits);
+
+    fruits[4]="Papaya";
+    console.log("New Fruits Array:",fruits);
+
+  //Delete
+    delete fruits[3]  ;
+    console.log("New Fruits Array:",fruits);
+
+    delete fruits[7]  ;
+    console.log("New Fruits Array:",fruits);
+
+
+     // array methods  https://www.w3schools.com/js/js_array_methods.asp,https://www.w3schools.com/jsref/jsref_obj_array.asp
+      // toString --convert array  to string
+      console.log("Typeof fruits:",typeof fruits);
+      console.log("converting array to string type:", typeof fruits.toString());
+     let stringArray= fruits.toString();
+      console.log("converting array to string:", stringArray);
+
+      //join --->convert array string using custom seperator
+     let joinArray=fruits.join("*=>");
+     console.log("converting array to string:", joinArray);
+
+//    concat-->
+var hege = ["Cecilie", "Lone"];
+var stale = ["Emil", "Tobias", "Linus"];
+var array3=[1,2,3]
+console.log("Array-1:",hege);
+console.log("Array-2:",stale);
+var children = stale.concat(hege,fruits,array3);
+    console.log("children:",children)
+
+
+
+  /*
+  every-return true if all condiotions are true else return false
+      -> it iterates for each value of array and check the condition for each element
+  ArrayName.every(callback function or annoynomous function)
+  
+  */
+
+  console.clear();
+ var ages = [32, 33, 18, 40,19,13,21,12,18];
+let result=ages.every(function(age){
+  console.log("age:",age);
+  return age>=18
+})
+console.log("result:",result)
+
+//------------------------------------------
+let minor=ages.filter(function(age){
+  return age<=18
+})
+console.log("Minor:",minor)
+
+let major=ages.filter(function(age){
+  return age>18
+})
+console.log("Major:",major)
+
+console.log("ages:",ages)
+
+     </script>
+</body>
+</html>

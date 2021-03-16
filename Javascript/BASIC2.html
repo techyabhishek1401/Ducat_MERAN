@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        console.log("Hello");
+        let name="Abhishek";
+
+        console.log("Name:",name);
+        console.log("HI");
+
+        const pie=3.14;
+        name="Neeraj";
+      //  pie=22;
+        console.log("New Name:",name);
+        console.log("pie:",pie);
+
+
+        // postfix /prefix
+
+        let a=0;
+   /*     a++; a+1  post increment
+         ++a; a+1   pre increment
+         a--; post decrement
+         --a; pre decrement
+   */
+     let b=0; 
+    let r=++a + b++ + a++ + ++b;
+    //     1  + 0  + 1 + 2
+    console.log("R:",r); //4
+    console.log("A:",a); //2
+    console.log("B:",b); //2
+
+    let fruits=["Apple","Orange","Grapes"]; //3
+    //            0      1         2
+    //CRUD
+    //Read
+       console.log(fruits[2]);
+    //Create
+    fruits[7]="Papaya";
+     
+    
+    //UPDATE
+    fruits[0]="Chico";
+    fruits[5]="Berries";
+    console.log("fruits:",fruits); 
+
+    //DELETE
+    delete fruits[0];
+    console.log("fruits:",fruits); 
+
+    let student={
+        name:"Abhishek",
+        'my fullname':"ABHISHEK KUMAR",
+        
+    };
+
+    console.log("Student:",student)
+    //READ
+      console.log("NAME:",student['my fullname']); //m1
+      console.log("NAME:",student.name); //m2
+      console.log("Student:",student)
+    //CREATE
+ //  student['rollNo']=21;  //
+   student.rollNo=21;  //
+   console.log("Student:",student)
+
+   //UPDATE
+   student.rollNo=1;
+   console.log("Student:",student);
+
+
+   //delete
+   delete student["my fullname"];
+   console.log("Student:",student);
+    </script>
+</body>
+</html>
