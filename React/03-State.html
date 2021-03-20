@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../bootstrap/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/mdb.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Create Content</title>
+</head>
+<body>
+
+    <div id='root'></div>
+
+<!-- BODY ENDS -->
+<script src="./js/fontawesome-all.js"></script>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+
+<script src="./js/react.development.js"></script>
+<script src="./js/react-dom.development.js"></script>
+<script src="./js/babel.js"></script>
+
+<script type="text/babel">
+
+
+// component  (Class)
+class Welcome extends React.Component {  
+   state={
+       name:"",
+       displayName:"",       
+   }
+
+   handelChange=(e)=> {
+     this.setState({name:e.target.value})
+     }
+   handleClick=(event)=>{  
+       this.setState({displayName:`Hello ${this.state.name}`})
+    }
+    render(){
+        console.log("in render");
+        return <div>
+            <h1>State Management </h1>  
+            <input id="name" placeholder="Enter your Name" onChange={this.handelChange}
+             value={this.state.name} />
+
+            <button onClick={this.handleClick}>
+            Display Name</button>
+            <h6>Name: {this.state.displayName} </h6>
+
+        </div>
+    }
+  
+}
+//Function Component
+function List({data,name}) {
+        return <ol>
+              {data.map((item,index)=>{
+                    return <li key={`item-${index}`}>{item}</li>
+               }) 
+            }             
+           </ol>
+  
+}
+// component  (Class)
+class TODO extends React.Component {  
+   state={
+      itemName:"",
+      items:[]     
+   }
+
+   handelChange=(e)=> {
+       this.setState({itemName:e.target.value})
+     }
+   handleClick=(event)=>{  
+       this.setState({items:[...this.state.items,this.state.itemName],itemName:""})
+    }
+    render(){
+        return <div>
+            <h1>TO DO LIST </h1>  
+            <input id="name" placeholder="Enter the Item" onChange={this.handelChange}
+             value={this.state.itemName} />
+
+            <button onClick={this.handleClick}>Add Item</button>
+           
+           <List data={this.state.items}  />
+          
+          
+
+        </div>
+    }
+  
+}
+
+ReactDOM.render(<TODO />,document.getElementById("root"));
+</script>
+</body>
+</html>
+
