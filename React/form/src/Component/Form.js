@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Table from './Table'
 export default class Form extends Component {
     constructor(props){
         super(props);
@@ -51,6 +51,15 @@ export default class Form extends Component {
            this.setState({users:tmp_users,toUpdate:false,name:"",age:"",department:""})
 
         }
+        handleDelete = (student) => {
+            const { users} = this.state;
+            let tmp_studentList = [...users];
+            let tmp_index = tmp_studentList.indexOf(student);
+            console.log("index:", tmp_index);
+            tmp_studentList.splice(tmp_index, 1);
+            console.log("studentList:", tmp_studentList);
+            this.setState({ users: tmp_studentList })
+          }
     render() {
         const {age,name,department,toUpdate,users}=this.state
         //age-- this.state.age
@@ -66,31 +75,7 @@ export default class Form extends Component {
                 }
                
                 {/* Table */}
-              {users.length>0 &&  <table border='2'>
-                    <thead>
-                        <tr>
-                            <th>SNO</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Department</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((user,index)=>{
-                            console.log("user:",user,index)
-                         return <tr key={`user-${index}`}>
-                                    <td>{index+1}</td>
-                                    <td>{user.name}</td>
-                                    <td>{user.age}</td>
-                                    <td>{user.department}</td>
-                                    <td><button onClick={this.handleEdit.bind(this,user)}>Edit</button></td>
-                                    <td><button>Delete</button></td>
-                         </tr>
-                        })}
-                    </tbody>
-                </table>}
+              {users.length>0 && <Table users={users} onEdit={this.handleEdit} onDelete={this.handleDelete}/> }
             </div>
         )
     }

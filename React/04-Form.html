@@ -1,134 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../bootstrap/css/fontawesome-all.css">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bootstrap/css/mdb.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>Create Content</title>
-    <style>
-        table,tr,td,th {
-            border:2px solid black;
-            
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../bootstrap/css/fontawesome-all.css">
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bootstrap/css/mdb.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Create Content</title>
+  <style>
+    table,
+    tr,
+    td,
+    th {
+      border: 2px solid black;
+
+    }
+  </style>
 </head>
+
 <body>
 
-    <div id='root'></div>
+  <div id='root'></div>
 
-<!-- BODY ENDS -->
-<script src="./js/fontawesome-all.js"></script>
-<script src="./js/jquery-3.2.1.min.js"></script>
-<script src="./js/popper.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
+  <!-- BODY ENDS -->
+  <script src="./js/fontawesome-all.js"></script>
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
 
-<script src="./js/react.development.js"></script>
-<script src="./js/react-dom.development.js"></script>
-<script src="./js/babel.js"></script>
+  <script src="./js/react.development.js"></script>
+  <script src="./js/react-dom.development.js"></script>
+  <script src="./js/babel.js"></script>
 
-<script type="text/babel">
+  <script type="text/babel">
 
 
-  class Form extends React.Component{
-      state={
-          name:"",
-          department:"",
-          cource:"",
-          studentList:[],
-          toUpdate:false
+    class Form extends React.Component {
+      state = {
+        name: "",
+        department: "",
+        cource: "",
+        id: 0,
+        studentList: [],
+        toUpdate: false,
+        temp: {}
       }
 
       handleChange(e) {
         //   console.log("this:",this);
         //   console.log("e:",e);
-          this.setState({[e.target.name]:e.target.value});
-         
+        this.setState({ [e.target.name]: e.target.value });
+
       }
-      addToList=()=>{
-          const {studentList,name,department,cource}=this.state;
-         
-    //   this.setState({studentList:[...this.state.studentList,{name:this.state.name,cource:this.state.cource,department:this.state.department}]},()=>{
-    //       console.log("state:",this.state)
-    //   })
-    this.setState({studentList:[...studentList,{name,cource,department}],name:"",cource:"",department:""});
-    // this.setState({name:""});
-    // this.setState({department:""});
-    // this.setState({cource:""});
+      addToList = () => {
+        const { studentList, name, department, cource, id } = this.state;
+
+        //   this.setState({studentList:[...this.state.studentList,{name:this.state.name,cource:this.state.cource,department:this.state.department}]},()=>{
+        //       console.log("state:",this.state)
+        //   })
+        this.setState({ studentList: [...studentList, { name, cource, department, id: this.state.id + 1 }], name: "", cource: "", department: "", id: this.state.id + 1 });
+        // this.setState({name:""});
+        // this.setState({department:""});
+        // this.setState({cource:""});
+        setTimeout(() => console.log("new users:", this.state.studentList), 30)
       }
 
-      handleEdit=(student)=>{
-          const {name,department,cource}=student;
-          this.setState({name:student.name,cource,department,toUpdate:true})
-          
-      }
-     updateList=()=>{
-         console.log(hello)
-     }
-        render(){
-            return <div>
-                     <input type="text" className="form-control" name="name" onChange={this.handleChange.bind(this)} value={this.state.name} placeholder="Name"/> <br />
-                     <input type="text" className="form-control" name="cource" onChange={this.handleChange.bind(this)} value={this.state.cource} placeholder="Cource"/> <br />
-                     <input type="text" className="form-control" name="department" onChange={this.handleChange.bind(this)}  value={this.state.department} placeholder="Department"/> <br />
-                     
-                    
-                   {
-                        this.state.toUpdate ?
-                      <button onClick={this.updateList}>Update</button>
-                      :
-                      <button onClick={this.addToList}>Add</button>
-                    }
+      handleEdit = (student) => {
+        console.log("student:", student)
+        const { name, department, cource } = student;
+        this.setState({ name: student.name, cource, department, toUpdate: true, temp: student })
 
-                   {this.state.studentList.length>0 && <table>
-                     <tr>
-                       <th>SNO.</th><th>Name</th><th>Cource</th><th>Department</th> <th>Edit</th><th>Delete</th>
-                     </tr>
-                     {this.state.studentList.map((student,index)=>{
-                         return <tr key={`row-${index}`}>
-                         <td>{index+1}</td>
-                         <td>{student.name}</td>
-                         <td>{student.cource}</td>
-                         <td>{student.department}</td>
-                         <td><button onClick={this.handleEdit.bind(this,student)}>Edit</button></td>
-                         <td><button>Delete</button></td>
-                         </tr>
-                    //  return   <tr key={`row-${index}`}>
-                    //      <td>1</td>
-                    //      <td>Abhishek</td>
-                    //      <td>MERN</td>
-                    //      <td>IT</td>
-                    //      <td><button onClick={this.handleEdit.bind(this,{name:"Abhishek",department:"IT",cource:"Mern"})}>Edit</button></td>
-                    //      <td><button>Delete</button></td>
-                    //      </tr>
-                    //      <tr key={`row-${index}`}>
-                    //      <td>1</td>
-                    //      <td>KUnal</td>
-                    //      <td>MERN</td>
-                    //      <td>IT</td>
-                    //      <td><button onClick={this.handleEdit.bind(this,{name:"Kunal",department:"IT",cource:"Mern"})}>Edit</button></td>
-                    //      <td><button>Delete</button></td>
-                    //      </tr>
-                    //      <tr key={`row-${index}`}>
-                    //      <td>1</td>
-                    //      <td>Saurab</td>
-                    //      <td>MEAN</td>
-                    //      <td>IT</td>
-                    //      <td><button onClick={this.handleEdit.bind(this,{name:"Saurab",department:"IT",cource:"MEAN"})}>Edit</button></td>
-                    //      <td><button>Delete</button></td>
-                    //      </tr>
-                     
-                         
-                     })}
-                     </table>
-}  
-                   </div>
-        }
-  }
-ReactDOM.render(<Form />,document.getElementById("root"));
-</script>
+      }
+      handleDelete = (student) => {
+        const { studentList, name, department, cource } = this.state;
+        let tmp_studentList = [...studentList];
+        let tmp_index = studentList.indexOf(student);
+        console.log("index:", tmp_index);
+        tmp_studentList.splice(tmp_index, 1);
+        console.log("studentList:", tmp_studentList);
+        this.setState({ studentList: tmp_studentList })
+      }
+      updateList = () => {
+        const { temp, studentList, name, department, cource } = this.state;
+        let tmp_studentList = [...studentList];
+        let tmp_index = studentList.indexOf(temp);
+        tmp_studentList[tmp_index] = { ...temp, name, department, cource };
+        this.setState({ studentList: tmp_studentList, name: "", cource: "", department: "", toUpdate: false })
+        console.log("updated studentList", tmp_studentList)
+        // console.log("actual userlist:", studentList)
+        // console.log('user to update:', temp)
+      }
+      render() {
+        return <div>
+          <input type="text" className="form-control" name="name" onChange={this.handleChange.bind(this)} value={this.state.name} placeholder="Name" /> <br />
+          <input type="text" className="form-control" name="cource" onChange={this.handleChange.bind(this)} value={this.state.cource} placeholder="Cource" /> <br />
+          <input type="text" className="form-control" name="department" onChange={this.handleChange.bind(this)} value={this.state.department} placeholder="Department" /> <br />
+
+
+          {
+            this.state.toUpdate ?
+              <button onClick={this.updateList}>Update</button>
+              :
+              <button onClick={this.addToList}>Add</button>
+          }
+
+          {this.state.studentList.length > 0 && <table>
+            <tr>
+              <th>SNO.</th><th>Name</th><th>Cource</th><th>Department</th> <th>Edit</th><th>Delete</th>
+            </tr>
+            {this.state.studentList.map((student, index) => {
+              return <tr key={`row-${index}`}>
+                <td>{index + 1}</td>
+                <td>{student.name}</td>
+                <td>{student.cource}</td>
+                <td>{student.department}</td>
+                <td><button onClick={this.handleEdit.bind(this, student)}>Edit</button></td>
+                <td><button onClick={this.handleDelete.bind(this, student)}>Delete</button></td>
+              </tr>
+              //  return   <tr key={`row-${index}`}>
+              //      <td>1</td>
+              //      <td>Abhishek</td>
+              //      <td>MERN</td>
+              //      <td>IT</td>
+              //      <td><button onClick={this.handleEdit.bind(this,{name:"Abhishek",department:"IT",cource:"Mern"})}>Edit</button></td>
+              //      <td><button>Delete</button></td>
+              //      </tr>
+              //      <tr key={`row-${index}`}>
+              //      <td>1</td>
+              //      <td>KUnal</td>
+              //      <td>MERN</td>
+              //      <td>IT</td>
+              //      <td><button onClick={this.handleEdit.bind(this,{name:"Kunal",department:"IT",cource:"Mern"})}>Edit</button></td>
+              //      <td><button>Delete</button></td>
+              //      </tr>
+              //      <tr key={`row-${index}`}>
+              //      <td>1</td>
+              //      <td>Saurab</td>
+              //      <td>MEAN</td>
+              //      <td>IT</td>
+              //      <td><button onClick={this.handleEdit.bind(this,{name:"Saurab",department:"IT",cource:"MEAN"})}>Edit</button></td>
+              //      <td><button>Delete</button></td>
+              //      </tr>
+
+
+            })}
+          </table>
+          }
+        </div>
+      }
+    }
+    ReactDOM.render(<Form />, document.getElementById("root"));
+  </script>
 </body>
-</html>
 
+</html>
