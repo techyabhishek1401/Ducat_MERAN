@@ -5,20 +5,22 @@ export default class EasyForm extends Component {
         super(props);
         this.state={
             name:"av",
-            age:""
+            age:"",
+            department:""
         }
+    }
+    handleChange=(event)=>{
+        console.log("event.target.name:",event.target.name);
+        console.log("event.target.value:",event.target.value);
+        this.setState({[event.target.name]:event.target.value});
+        
     }
     render() {
         return (
             <div>
-                <input placeholder="Name" onChange={(event)=>{
-                //  this.state.name=event.target.value
-                this.setState({name:event.target.value})
-                }}/>
-                 <input placeholder="Age" onChange={(event)=>{
-                //  this.state.name=event.target.value
-                this.setState({age:event.target.value})
-                }}/>
+                <input placeholder="Name" name="name" onChange={this.handleChange}/>
+                 <input placeholder="Age" name="age" onChange={this.handleChange}/>
+                 <input placeholder="Department" name="department" onChange={this.handleChange}/>
                 <h1>My Name is <span style={{color:"red"}}>{this.state.name}</span>,I'm {this.state.age} years old </h1>
             </div>
         )

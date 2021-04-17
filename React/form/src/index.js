@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Default,{App,Test} from './App'
 import ABC from './App'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import reportWebVitals from './reportWebVitals';
