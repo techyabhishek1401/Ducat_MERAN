@@ -1,10 +1,12 @@
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, useEffect, useMemo, useCallback, useContext } from 'react';
 import ReusableTable from '../../Component/ReusableTable';
 import axios from 'axios';
+import { MyContext } from '../../Context'
 export default function ApiFunction() {
 
-
+    const someContext = useContext(MyContext);
+    console.log("SOME CONTEXT:", someContext)
     const tableHeader = useMemo(() => ["name", "gender", "email", "picture"], [])
     const recordsPerPage = 50;
     const [totalUsers, setTotalUsers] = useState([])
@@ -52,7 +54,9 @@ export default function ApiFunction() {
 
     return (
         <div>
-            {number} <br />
+
+
+            {someContext.name} <br />
             <button onClick={() => setNumber(number + 1)}> number</button>
             <ReusableTable header={tableHeader} data={usersToDisplay} startPage={firstIndex} />
             <div>

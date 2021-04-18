@@ -17,15 +17,15 @@ code {
 }
 
 ul {
-  list-style: none;
+  /* list-style: none;
   margin: 10px auto;
   max-width: 80vw;
   max-height: 50px;
   overflow-x: scroll;
-  display: flex;
+  display: flex; */
 }
 li {
-  width: 70px;
+  /* width: 70px;
   background: black;
   padding: 2px 7px;
   border-right: 1px solid white;
@@ -34,5 +34,5 @@ li {
   color: white;
   text-align: center;
 
-  cursor: pointer;
+  cursor: pointer; */
 }

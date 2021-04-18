@@ -1,20 +1,12 @@
-//const React =require('react');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Default, { App, Test } from './App'
-import ABC from './App'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <React.StrictMode>
-    <Default />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
